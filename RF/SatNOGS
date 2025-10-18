@@ -1,1 +1,8 @@
 https://www.youtube.com/watch?v=fAlA5aRkchU  -- reference video
+SatNOGS-  is satellite networked open ground station so it is a global open source project that lets anyone Build operate and share a satellite ground station all connected through the Internet.
+Basically it is like worldwide network of antennas and radios that can track and receive signals from satellites especially LEO
+Imagine hundreds of people around the world each having a small antenna and a receiver they connect their setups to the satnogs network online.
+when a satellite passes over one of them the ground station it
+    automatically tracks the satellite movement 
+    receives signals like telemetry, images, beacon data and
+    uploads data to the satnogs database so that everyone can access it publicly
