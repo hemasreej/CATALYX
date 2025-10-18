@@ -1,3 +1,24 @@
+--- simple flask app ----- 
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Welcome to Satellite Telemetry Dashboard 🚀, for data use  - <a href="http://127.0.0.1:5000/data" > data page</a>'
+    # to include a link in between text use the above format
+
+@app.route('/data')
+def telemetry():
+    return {"altitude": 420.5, "temperature": 23.7}
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+-----  this is for databases- --------
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
