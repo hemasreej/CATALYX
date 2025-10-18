@@ -1,0 +1,29 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
+# 1️⃣ Connect to your database (this uses SQLite for simplicity)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///telemetry.db'
+db = SQLAlchemy(app)
+
+# 2️⃣ Define a table as a Python class
+class TelemetryData(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    satellite_id = db.Column(db.String(20), nullable=False)
+    altitude = db.Column(db.Float)
+    temperature = db.Column(db.Float)
+
+# 3️⃣ Create the table
+with app.app_context():
+    db.create_all()
+
+# 4️⃣ Insert data
+data = TelemetryData(satellite_id="SAT001", altitude=400.5, temperature=25.3)
+db.session.add(data)
+db.session.commit()
+
+# 5️⃣ Retrieve data
+telemetries = TelemetryData.query.all()
+for t in telemetries:
+    print(t.satellite_id, t.altitude, t.temperature)
