@@ -1,0 +1,17 @@
+Practical workflow at a TT&C station (step-by-step)
+
+Predict: get current ephemeris/TLE → predict next pass and pointing (az/el vs time).
+
+Schedule: create schedule in the ground software (antenna, receiver, recording, demodulation).
+
+Acquire & track: antenna slews to initial az/el, acquires beacon, and then tracks (closed-loop using received signal strength / feedback from tracking loop).
+
+Record measurements: log carrier frequency, telemetry packets, ranging measurements, timestamps (GPS time).
+
+Process: send raw data to data-reduction center or run orbit-determination locally.
+
+Decide: if orbit error > threshold, plan correction.
+
+Command: send uplink commands (orbit burns, attitude adjustments).
+
+Confirm: verify via post-burn tracking and telemetry.
